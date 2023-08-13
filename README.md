@@ -15,9 +15,9 @@ You can run your application in dev mode that enables live coding using:
 
 ## Packaging and running the application
 
-The application can be packaged using:
+The application can be run:
 ```shell script
-./mvnw package
+./jbang src/main/java/App.java
 ```
 It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
 Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
