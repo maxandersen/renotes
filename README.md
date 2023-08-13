@@ -1,61 +1,19 @@
 # renotes Project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This project is a web app using Quarkus with web bundler, htmx and  renarde to make a simple note taking app.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+This branch is special as it is using JBang as a proof-of-concept to see how far it can go.
 
-## Running the application in dev mode
+Noteworthy is that no node or npm is required to build the app. It is all done with JBang integrated in Quarkus and the Quarkus Web Bundle extension.
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
+## How to build/run
+
+```shell
+jbang src/main/java/App.java
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+## Outstanding issues
 
-## Packaging and running the application
+devmode is broken due to bug in handling of multiple maven repositories.
 
-The application can be run:
-```shell script
-./jbang src/main/java/App.java
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
-
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/renotes-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Related Guides
-
-- Renarde ([guide](https://quarkiverse.github.io/quarkiverse-docs/quarkus-renarde/dev/index.html)): Renarde is a server-side Web Framework based on Quarkus, Qute, Hibernate and RESTEasy Reactive.
-
-## Provided Code
-
-### Renarde
-
-This is a small Renarde webapp
-
-[Related guide section...](https://quarkiverse.github.io/quarkiverse-docs/quarkus-renarde/dev/index.html)
-
+devmode also don't seem to enable h2 devservice but might be related to the above issue.
